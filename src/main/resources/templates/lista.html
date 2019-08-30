@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+	
+<head th:replace="header :: header"></head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Rate</th>
+							<th>Name</th>
+							<th>Directors</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="movie,count: ${lista}">
+							<td th:text="${count.count}"></td>
+							<td th:text="${movie.rate}"></td>	
+							<td>
+								<p th:text="${movie.name}">
+									<small>Directors:</small>
+								</p>
+							</td>
+							<td th:text="${movie.directors}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
