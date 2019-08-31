@@ -16,6 +16,7 @@
 							<th>Rate</th>
 							<th>Name</th>
 							<th>Directors</th>
+							<th>Positives Comments</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -23,11 +24,20 @@
 							<td th:text="${count.count}"></td>
 							<td th:text="${movie.rate}"></td>	
 							<td>
-								<p th:text="${movie.name}">
-									<small>Directors:</small>
-								</p>
+								<h4 style="font-color:#afaeae" th:text="${movie.name}"></h4>
+								<div style="border-bottom: 1px solid #ddd;margin-bottom:5px;"></div>
+								<p><i>Cast</i></p>
+								<div th:each="hash :${movie.cast}">
+									<div class="col-xs-6">
+										<small class="pull-left" th:text="${hash.key}"></small>
+									</div>
+									<div class="col-xs-6">
+										<small class="pull-right" th:text="${hash.value}"></small>
+									</div>
+								</div>
 							</td>
 							<td th:text="${movie.directors}"></td>
+							<td></td>
 						</tr>
 					</tbody>
 				</table>

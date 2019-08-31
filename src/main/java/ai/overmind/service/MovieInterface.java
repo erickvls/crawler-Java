@@ -7,7 +7,7 @@ import org.jsoup.nodes.Document;
 import ai.overmind.model.dto.Movie;
 
 public interface MovieInterface<T> {
-	public List<Movie> listMovies(String path,String language);
+	public List<T> listMovies(String path,String language);
 	
-	public List<Movie> viewDetails(List<Movie> list);
+	public List<T> viewDetails(List<Movie> list);
 }

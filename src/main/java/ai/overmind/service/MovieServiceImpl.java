@@ -2,7 +2,9 @@ package ai.overmind.service;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -10,6 +12,7 @@ import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ai.overmind.model.dto.Cast;
 import ai.overmind.model.dto.Movie;
 
 @Service
@@ -54,27 +57,19 @@ public class MovieServiceImpl implements MovieService {
 			Elements directors = dom.select("div[class='credit_summary_item']");
 			movie.setDirectors(directors.first().getElementsByAttribute("href").html());
 			
-			
 			Elements el = dom.select("table[class='cast_list']");
 			for (Element e: el.select("tr")) {
-				System.out.println(e.select("td:nth-child(2)").text());
-				System.out.println(e.getElementsByAttributeValue("class", "character").text());
+				HashMap<String,String> hash = new HashMap<String,String>();
+//				hash.put(e.select("td:nth-child(2)").text(), e.getElementsByAttributeValue("class", "character").text());
+				movie.getCast().put(e.select("td:nth-child(2)").text(), e.getElementsByAttributeValue("class", "character").text());
+//				movie.setCast(hash);
 			}
 			
-
+			
 			
 			movieDetails.add(movie);
 			
 		}
-		
-		
-		
-//		System.out.println(castList.get(0).getElementsByClass("even").text());
-		
-		//			for (Element elementInside : castList) {
-//			System.out.println(elementInside.getElementsByClass("odd").text());
-//			System.out.println(elementInside.getElementsByClass("even").text());
-//		}
 		
 		
 		return movieDetails;

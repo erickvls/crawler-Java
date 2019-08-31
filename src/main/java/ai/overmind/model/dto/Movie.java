@@ -1,5 +1,6 @@
 package ai.overmind.model.dto;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Movie {
@@ -9,15 +10,18 @@ public class Movie {
 	private String comments;
 	private String directors;
 	private String path;
-	private List<Cast> cast;
+	
+	private HashMap<String,String> cast = new HashMap<String,String>();
 	
 	
 	public Movie() {
 		super();
 	}
 
+	
+
 	public Movie(Integer id, String name, String rate, String comments, String directors, String path,
-			List<Cast> cast) {
+			HashMap<String, String> cast) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -27,7 +31,8 @@ public class Movie {
 		this.path = path;
 		this.cast = cast;
 	}
-	
+
+
 
 	public Integer getId() {
 		return id;
@@ -89,16 +94,14 @@ public class Movie {
 	}
 
 
-	public List<Cast> getCast() {
+	public HashMap<String, String> getCast() {
 		return cast;
 	}
 
 
-	public void setCast(List<Cast> cast) {
+	public void setCast(HashMap<String, String> cast) {
 		this.cast = cast;
 	}
-
-
 
 	
 	
