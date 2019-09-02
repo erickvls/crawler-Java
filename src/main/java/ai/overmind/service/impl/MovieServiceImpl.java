@@ -29,13 +29,12 @@ public class MovieServiceImpl implements MovieService {
 		List<Movie> moviesList = addMovieNamesAndRating(bodyTable);
 		Collections.reverse(moviesList);
 		List <Movie> top10MoviesList =  moviesList.subList(0, 10);
-		return viewDetails(top10MoviesList);
+		return addDetailsToMovie(top10MoviesList);
 	}
 	
 	
 
-	@Override
-	public  List<Movie> viewDetails(List<Movie> top10MoviesList) {
+	private List<Movie> addDetailsToMovie(List<Movie> top10MoviesList) {
 		
 		List<Movie> movieListDetails= new ArrayList<>();
 		
