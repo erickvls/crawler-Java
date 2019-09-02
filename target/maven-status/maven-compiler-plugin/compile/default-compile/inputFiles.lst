@@ -1,0 +1,9 @@
+/home/erick/Área de Trabalho/crawler-Java/src/main/java/ai/overmind/CrawlerApplication.java
+/home/erick/Área de Trabalho/crawler-Java/src/main/java/ai/overmind/interfaces/IMovie.java
+/home/erick/Área de Trabalho/crawler-Java/src/main/java/ai/overmind/interfaces/IJSoup.java
+/home/erick/Área de Trabalho/crawler-Java/src/main/java/ai/overmind/controller/MovieController.java
+/home/erick/Área de Trabalho/crawler-Java/src/main/java/ai/overmind/service/JSoupService.java
+/home/erick/Área de Trabalho/crawler-Java/src/main/java/ai/overmind/service/impl/JSoupServiceImpl.java
+/home/erick/Área de Trabalho/crawler-Java/src/main/java/ai/overmind/model/dto/Movie.java
+/home/erick/Área de Trabalho/crawler-Java/src/main/java/ai/overmind/service/impl/MovieServiceImpl.java
+/home/erick/Área de Trabalho/crawler-Java/src/main/java/ai/overmind/service/MovieService.java

@@ -11,6 +11,32 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	
 	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript">
+
+	
+	
+	
+	
+	
+	$(document).on('show.bs.modal', '#commentModal', function (event){
+		  var eventClick = $(event.relatedTarget); 
+		  var title = eventClick.data('title'); 
+		  var content = eventClick.data('content');
+		  var author = eventClick.data('author');
+		  var rate = eventClick.data('rate');
+		  var modalBody = $(this);
+		  modalBody.find('.modal-body h3').html(title);
+		  modalBody.find('.modal-body h5').html(content);
+		  modalBody.find('.modal-body i').html(author);
+		});
+	
+	
+	
+	</script>	
+	
 </head>
 
 </html>

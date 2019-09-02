@@ -7,20 +7,17 @@ public class Movie {
 	private Integer id;
 	private String name;
 	private String rate;
-	private String comments;
+	private List<Comments> comments;
 	private String directors;
-	private String path;
+	private String url;
 	
 	private HashMap<String,String> cast = new HashMap<String,String>();
-	
-	
+
 	public Movie() {
 		super();
 	}
 
-	
-
-	public Movie(Integer id, String name, String rate, String comments, String directors, String path,
+	public Movie(Integer id, String name, String rate, List<Comments> comments, String directors, String url,
 			HashMap<String, String> cast) {
 		super();
 		this.id = id;
@@ -28,82 +25,64 @@ public class Movie {
 		this.rate = rate;
 		this.comments = comments;
 		this.directors = directors;
-		this.path = path;
+		this.url = url;
 		this.cast = cast;
 	}
-
-
 
 	public Integer getId() {
 		return id;
 	}
 
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 
 	public String getName() {
 		return name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 
 	public String getRate() {
 		return rate;
 	}
 
-
 	public void setRate(String rate) {
 		this.rate = rate;
 	}
 
-
-	public String getComments() {
+	public List<Comments> getComments() {
 		return comments;
 	}
-
-
-	public void setComments(String comments) {
+	
+	public void setComments(List<Comments> comments) {
 		this.comments = comments;
 	}
-
 
 	public String getDirectors() {
 		return directors;
 	}
 
-
 	public void setDirectors(String directors) {
 		this.directors = directors;
 	}
 
-
-	public String getPath() {
-		return path;
+	public String getUrl() {
+		return url;
 	}
 
-
-	public void setPath(String path) {
-		this.path = path;
+	public void setUrl(String url) {
+		this.url = url;
 	}
-
 
 	public HashMap<String, String> getCast() {
 		return cast;
 	}
 
-
 	public void setCast(HashMap<String, String> cast) {
 		this.cast = cast;
 	}
 
-	
-	
-	
 }

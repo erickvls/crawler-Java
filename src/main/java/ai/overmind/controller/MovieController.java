@@ -22,9 +22,9 @@ public class MovieController {
 	@RequestMapping
 	public ModelAndView listAll(){
 		List<Movie> movieList = movieService.listMovies("chart/bottom", "en");
-		ModelAndView mav = new  ModelAndView("lista");
-		mav.addObject("lista",movieList);
-		return mav;
+		ModelAndView modelAndView = new  ModelAndView("lista");
+		modelAndView.addObject("lista",movieList);
+		return modelAndView;
 	}
 	
 }

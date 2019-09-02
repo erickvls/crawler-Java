@@ -14,16 +14,16 @@
 						<tr>
 							<th>#</th>
 							<th>Rate</th>
-							<th>Name</th>
-							<th>Directors</th>
-							<th>Positives Comments</th>
+							<th class="col-xs-4">Name</th>
+							<th class="col-xs-2">Directors</th>
+							<th class="col-xs-4">Positives Comments</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="movie,count: ${lista}">
-							<td th:text="${count.count}"></td>
-							<td th:text="${movie.rate}"></td>	
-							<td>
+							<td th:text="${count.count}" class="col-xs-1"></td>
+							<td th:text="${movie.rate}" style="font-weight: bold;color:#B8860B;" class="col-xs-1"></td>	
+							<td class="col-xs-3">
 								<h4 style="font-color:#afaeae" th:text="${movie.name}"></h4>
 								<div style="border-bottom: 1px solid #ddd;margin-bottom:5px;"></div>
 								<p><i>Cast</i></p>
@@ -36,8 +36,17 @@
 									</div>
 								</div>
 							</td>
-							<td th:text="${movie.directors}"></td>
-							<td></td>
+							<td th:text="${movie.directors}" class="col-xs-2"></td>
+							<td class="col-xs-5">
+								<div th:each="comment : ${movie.comments}" th:if="${comment} !=null">
+										<small style="font-weight: bold;color:#B8860B;" th:text="|${comment.rate}/10 - |"></small>
+										<a data-target="#commentModal" href="#"
+											th:attr="data-title=${comment.title},data-content=${comment.content},data-author=${comment.author},data-rate=${comment.rate}" data-toggle="modal" 
+											style="font-weight: bold;color:black;font-size:12px;" th:text="${comment.title}">
+										</a>
+								</div>
+								<small style="font-weight: bold;" th:if="${#lists.size(movie.comments)} == 0">No positive comments</small>
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -45,12 +54,13 @@
 		</div>
 	</div>
 
-
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<div th:replace="fragments/comment :: commentModal"></div>
+	
+	
+	
+	
+	
+	
 </body>
 
 </html>

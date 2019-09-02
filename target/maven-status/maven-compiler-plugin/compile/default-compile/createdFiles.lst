@@ -1,0 +1,9 @@
+ai/overmind/service/MovieService.class
+ai/overmind/CrawlerApplication.class
+ai/overmind/service/impl/MovieServiceImpl.class
+ai/overmind/interfaces/IJSoup.class
+ai/overmind/service/JSoupService.class
+ai/overmind/controller/MovieController.class
+ai/overmind/model/dto/Movie.class
+ai/overmind/interfaces/IMovie.class
+ai/overmind/service/impl/JSoupServiceImpl.class
