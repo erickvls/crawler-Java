@@ -2,13 +2,13 @@ package ai.overmind.model.dto;
 
 public class Comments {
 	private String title;
-	private Integer rate;
+	private Double rate;
 	private String content;
 	private String author;
 	
 	public Comments() {}
 	
-	public Comments(String title, Integer rate, String content, String author) {
+	public Comments(String title, Double rate, String content, String author) {
 		super();
 		this.title = title;
 		this.rate = rate;
@@ -21,10 +21,10 @@ public class Comments {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Integer getRate() {
+	public Double getRate() {
 		return rate;
 	}
-	public void setRate(Integer rate) {
+	public void setRate(Double rate) {
 		this.rate = rate;
 	}
 	public String getContent() {

@@ -1,5 +1,6 @@
 ai/overmind/service/MovieService.class
 ai/overmind/CrawlerApplication.class
+ai/overmind/model/dto/Comments.class
 ai/overmind/service/impl/MovieServiceImpl.class
 ai/overmind/interfaces/IJSoup.class
 ai/overmind/service/JSoupService.class

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ai.overmind.CrawlerApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.974 s - in ai.overmind.CrawlerApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.289 s - in ai.overmind.CrawlerApplicationTests

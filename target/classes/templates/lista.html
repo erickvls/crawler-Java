@@ -39,7 +39,7 @@
 							<td th:text="${movie.directors}" class="col-xs-2"></td>
 							<td class="col-xs-5">
 								<div th:each="comment : ${movie.comments}" th:if="${comment} !=null">
-										<small style="font-weight: bold;color:#B8860B;" th:text="|${comment.rate}/10 - |"></small>
+										<small style="font-weight: bold;color:#B8860B;" th:text="${comment.rate}"> - </small>
 										<a data-target="#commentModal" href="#"
 											th:attr="data-title=${comment.title},data-content=${comment.content},data-author=${comment.author},data-rate=${comment.rate}" data-toggle="modal" 
 											style="font-weight: bold;color:black;font-size:12px;" th:text="${comment.title}">

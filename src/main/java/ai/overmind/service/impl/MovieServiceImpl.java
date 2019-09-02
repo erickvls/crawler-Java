@@ -81,13 +81,11 @@ public class MovieServiceImpl implements MovieService {
 		Elements commentsDiv = dom.select("div[class='lister-list']");
 		
 		List<Comments> commentsList = new ArrayList<Comments>();
-		
-		for(Element element : commentsDiv.select("div[class='lister-item mode-detail imdb-user-review  collapsable']")) {
+		for(Element element : commentsDiv.select("div[class^='lister-item mode-detail imdb-user-review ']")) {
 			Comments comments = new Comments();
 			if(checkHasRating(element)) {
-				Integer rate = convertRateToNumber(element.getElementsByClass("ipl-ratings-bar").get(0).getElementsByClass("rating-other-user-rating").text());
+				Double rate = convertRateToNumber(element.getElementsByClass("ipl-ratings-bar").text());
 				if(checkGreaterEqualThanFive(rate)) {
-					System.out.println(element.getElementsByClass("lister-item-content").get(0).getElementsByClass("title").text());
 					comments = addCommentDto(element,rate);
 					commentsList.add(comments);
 				}
@@ -97,7 +95,7 @@ public class MovieServiceImpl implements MovieService {
 		movie.setComments(commentsList);
 	}
 	
-	private Comments addCommentDto(Element element,Integer rate) {
+	private Comments addCommentDto(Element element,Double rate) {
 		Comments comments = new Comments();
 		comments.setTitle(element.getElementsByClass("lister-item-content").get(0).getElementsByClass("title").text());
 		comments.setContent(element.getElementsByClass("text show-more__control").text());
@@ -110,13 +108,13 @@ public class MovieServiceImpl implements MovieService {
 		return element.getElementsByClass("ipl-ratings-bar").hasText() ? true : false;
 	}
 	
-	public Boolean checkGreaterEqualThanFive(Integer number) {
+	public Boolean checkGreaterEqualThanFive(Double number) {
 		return number >4 ? true : false;
 	}
 	
-	public Integer convertRateToNumber(String rate) {
+	public Double convertRateToNumber(String rate) {
 		String [] arrayValues = rate.split("/");
-		Integer number = Integer.parseInt(arrayValues[0]);
+		Double number = Double.parseDouble(arrayValues[0]);
 		return number;
 	}
 	
