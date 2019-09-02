@@ -23,7 +23,6 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public List<Movie> listMovies(String path,String language) {
-		
 		Document dom = jsoupService.initialize(path, language);
 		Elements bodyTable = dom.select("tbody[class='lister-list']");
 		List<Movie> moviesList = addMovieNamesAndRating(bodyTable);
@@ -35,7 +34,6 @@ public class MovieServiceImpl implements MovieService {
 	
 
 	private List<Movie> addDetailsToMovie(List<Movie> top10MoviesList) {
-		
 		List<Movie> movieListDetails= new ArrayList<>();
 		
 		for (Movie movie: top10MoviesList) {
@@ -78,8 +76,8 @@ public class MovieServiceImpl implements MovieService {
 		String [] path = movie.getUrl().split("/");
 		Document dom = jsoupService.initialize("title/"+path[2]+"/reviews?ref_=tt_urv", "en");
 		Elements commentsDiv = dom.select("div[class='lister-list']");
-		
 		List<Comments> commentsList = new ArrayList<Comments>();
+		
 		for(Element element : commentsDiv.select("div[class^='lister-item mode-detail imdb-user-review ']")) {
 			Comments comments = new Comments();
 			if(checkHasRating(element)) {
