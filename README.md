@@ -17,8 +17,3 @@ Whats include
 - Comments with rate greater equal than 5. Only titles comments are displayed
 - title comment is clickable to open description about comment with author
 
-
-Structure
-
-Rate | Name | Directors | Comments 
-
