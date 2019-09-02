@@ -104,15 +104,15 @@ public class MovieServiceImpl implements MovieService {
 		return comments;
 	}
 	
-	public Boolean checkHasRating(Element element) {
+	private Boolean checkHasRating(Element element) {
 		return element.getElementsByClass("ipl-ratings-bar").hasText() ? true : false;
 	}
 	
-	public Boolean checkGreaterEqualThanFive(Double number) {
+	private Boolean checkGreaterEqualThanFive(Double number) {
 		return number >4 ? true : false;
 	}
 	
-	public Double convertRateToNumber(String rate) {
+	private Double convertRateToNumber(String rate) {
 		String [] arrayValues = rate.split("/");
 		Double number = Double.parseDouble(arrayValues[0]);
 		return number;
