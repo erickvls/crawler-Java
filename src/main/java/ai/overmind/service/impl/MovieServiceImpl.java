@@ -35,7 +35,7 @@ public class MovieServiceImpl implements MovieService {
 	
 
 	@Override
-	public List<Movie> viewDetails(List<Movie> top10MoviesList) {
+	public  List<Movie> viewDetails(List<Movie> top10MoviesList) {
 		
 		List<Movie> movieListDetails= new ArrayList<>();
 		
@@ -45,7 +45,7 @@ public class MovieServiceImpl implements MovieService {
 			movie.setDirectors(directorsMovie.first().getElementsByAttribute("href").html());
 			Elements castTable = dom.select("table[class='cast_list']");	
 			addCastMovieDto(castTable,movie);
-			viewComments(movie);
+			addCommentToMovie(movie);
 			movieListDetails.add(movie);
 		}
 		
@@ -75,7 +75,7 @@ public class MovieServiceImpl implements MovieService {
 		}
 	}
 	
-	public void viewComments(Movie movie) {
+	private void addCommentToMovie(Movie movie) {
 		String [] path = movie.getUrl().split("/");
 		Document dom = jsoupService.initialize("title/"+path[2]+"/reviews?ref_=tt_urv", "en");
 		Elements commentsDiv = dom.select("div[class='lister-list']");
@@ -86,7 +86,7 @@ public class MovieServiceImpl implements MovieService {
 			if(checkHasRating(element)) {
 				Double rate = convertRateToNumber(element.getElementsByClass("ipl-ratings-bar").text());
 				if(checkGreaterEqualThanFive(rate)) {
-					comments = addCommentDto(element,rate);
+					comments = createComment(element,rate);
 					commentsList.add(comments);
 				}
 			}
@@ -95,7 +95,7 @@ public class MovieServiceImpl implements MovieService {
 		movie.setComments(commentsList);
 	}
 	
-	private Comments addCommentDto(Element element,Double rate) {
+	private Comments createComment(Element element,Double rate) {
 		Comments comments = new Comments();
 		comments.setTitle(element.getElementsByClass("lister-item-content").get(0).getElementsByClass("title").text());
 		comments.setContent(element.getElementsByClass("text show-more__control").text());
